@@ -1,0 +1,12 @@
+<h1>{{ title }}</h1>
+<h2>{{ msg }}</h2>
+<p>Value of a: {{ a }}</p>
+<p>Value of a: {{ b }}</p>
+<p>Addition is: {{ ans }}</p>
+<input type="text" value="{{ inputVal }}" disabled="{{ isDisabled }}" />
+<!-- interpolation (hep string) -->
+<br /><br />
+<input type="text" [value]="inputVal" [disabled]="isDisabled" />
+<!-- property bindings -->
+<img [src]="imgSrc" alt="" />
+<button type="submit" (click)="display('Welcome')">Click</button>
