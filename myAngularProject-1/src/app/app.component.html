@@ -10,3 +10,69 @@
 <!-- property bindings -->
 <img [src]="imgSrc" alt="" />
 <button type="submit" (click)="display('Welcome')">Click</button>
+<h1 (dblclick)="incr()">Increment - {{ counter }} (Double Click)</h1>
+<h1 (mouseover)="incr()">Increment - {{ counter }} (Mouse Over)</h1>
+<h1 (mouseleave)="incr()">Increment - {{ counter }} (Mouse Leave)</h1>
+<h1 (mousedown)="incr()">
+  Increment - {{ counter }} (Mouse Down - Basılı Tutma)
+</h1>
+<h1 (mouseup)="incr()">
+  Increment - {{ counter }} (Mouse Up - Basılı Tutuşu Bıraktıktan Sonra)
+</h1>
+<h1 (drag)="incr()">Increment - {{ counter }} (Drag - Taşıma)</h1>
+<h1 (dragover)="incr()">
+  Increment - {{ counter }} (Dragover - Taşıma Sonrası Elementin Üzerine
+  Getirince Artar)
+</h1>
+<input type="text" (keypress)="onKeyPress()" />
+<input type="text" (keydown)="onKeyDown()" />
+<!-- ikisi de aynı şey -->
+<input type="text" (keydown.enter)="onKeyDown()" />
+<!-- enter'a basınca event triggerlanıyor -->
+<input type="text" (keyup)="onKeyUp()" />
+<!-- tuşa basmayı bırakınca çalışıyor, aramalarda kullanılabilir, kullanıcı yazmayı bitirince çalışacağı için -->
+<input type="text" (focus)="onFocus()" />
+<!-- inputa tıklayınca triggerlanıyor -->
+<input type="text" (select)="onSelect()" />
+<!-- yazdığını sürükleyip seçince triggerlanıyor -->
+<input type="text" (keyup)="onKeyUp2($event)" />
+<input type="text" (keydown.shift.y)="isShift()" />
+<input type="text" (keydown)="isShift2($event)" />
+<input type="text" [(ngModel)]="staticInput" />
+<br /><br />
+<input type="text" [(ngModel)]="dynamicInput" />
+<h1>{{ dynamicInput }}</h1>
+<input type="text" [(ngModel)]="inputVal2" />
+<br /><br />
+<button type="submit" (click)="show()">Show</button>
+<h1>{{ dynamicVal }}</h1>
+<div class="countExample">
+  <div class="container">
+    <h1>Counter Example</h1>
+    <div class="btn-container">
+      <button (click)="counter2('decr')">--</button>
+      <p>{{ count }}</p>
+      <button (click)="counter2('incr')">++</button>
+    </div>
+  </div>
+</div>
+<div *ngIf="display2">Structural Directive Example</div>
+<h1 *ngIf="num > 0">{{ num }} is greater than 0</h1>
+<h1 *ngIf="num === 0">Number is 0</h1>
+<h1 *ngIf="num < 0">{{ num }} is less than 0</h1>
+<button (click)="show2()">Show</button>
+<button (click)="displayElement = !displayElement">Show with inline coding</button>
+<br /><br />
+<div *ngIf="displayElement">This is the division element</div>
+<div *ngFor="let value of fullStackDev">
+  <ul>
+    <li>{{ value.id }}</li>
+    <li>{{ value.name }}</li>
+  </ul>
+</div>
+<button (click)="show3 = !show3">Show List</button>
+<ul *ngIf="show3">
+  <li *ngFor="let item of listItems" style="margin-bottom: 15px">
+    {{ item.name }} is {{ item.age }}
+  </li>
+</ul>
